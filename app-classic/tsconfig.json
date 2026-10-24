@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@accumulator/sdk": ["../sdk/src"],
+      "@solana/web3.js": ["./node_modules/@solana/web3.js"],
+      "@solana/spl-token": ["./node_modules/@solana/spl-token"],
+      "@coral-xyz/anchor": ["./node_modules/@coral-xyz/anchor"]
+    }
+  },
+  "include": ["src", "../sdk/src"]
+}

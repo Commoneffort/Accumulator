@@ -1,0 +1,13 @@
+[package]
+name = "block-buffer"
+version = "0.12.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Buffer types for block processing of data"
+
+[dependencies]
+hybrid-array = "0.4"
+zeroize = { version = "1.4", optional = true, default-features = false }
+
+[features]
+zeroize = ["dep:zeroize"]

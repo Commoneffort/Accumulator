@@ -1,0 +1,27 @@
+node_modules/
+target/
+tests-rs/target/
+app/node_modules/
+app/dist/
+.anchor/
+test-ledger/
+.env
+.env.*
+deploy/
+drill/
+internal/
+app-classic/node_modules
+app-classic/dist/
+
+# Secrets: keypairs, tokens, raw key material
+*keypair*.json
+id.json
+*.key
+*.pem
+.vercel/
+drill-run*/
+tests-rs/fixtures/app-plan.json
+
+# Machine-specific (absolute local paths); see bots/accumulator-liquidator.service.example
+bots/accumulator-liquidator.service
+*.log

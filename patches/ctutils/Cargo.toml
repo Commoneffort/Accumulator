@@ -1,0 +1,15 @@
+[package]
+name = "ctutils"
+version = "0.4.2"
+edition = "2021"
+authors = ["RustCrypto Developers"]
+description = "Constant-time utility library"
+license = "Apache-2.0 OR MIT"
+
+[dependencies]
+cmov = "0.5.3"
+
+[features]
+default = []
+alloc = []
+subtle = []

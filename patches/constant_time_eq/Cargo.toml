@@ -1,0 +1,11 @@
+[package]
+name = "constant_time_eq"
+version = "0.4.2"
+edition = "2021"
+authors = ["Cesar Eduardo Barros <cesarb@cesarb.eti.br>"]
+description = "Compares two equal-sized byte strings in constant time."
+license = "CC0-1.0 OR MIT-0 OR Apache-2.0"
+
+[features]
+default = ["std"]
+std = []

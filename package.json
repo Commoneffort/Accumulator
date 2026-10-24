@@ -1,0 +1,32 @@
+{
+  "name": "accumulator-protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Accumulator \u2014 isolated lend/borrow markets on X1",
+  "scripts": {
+    "build": "anchor build && npm run sync-idl",
+    "sync-idl": "cp target/idl/accumulator.json sdk/src/idl/accumulator.json && cp target/types/accumulator.ts sdk/src/idl/accumulator-types.ts",
+    "test:unit": "cargo test -p accumulator --lib",
+    "test": "NODE_OPTIONS=--no-experimental-strip-types ts-mocha -p ./tsconfig.json -t 60000 tests/sdk.test.ts",
+    "test:program": "anchor build && npm run app-plan && cd tests-rs && cargo test --release",
+    "test:all": "npm run test:unit && npm run test:program && npm test",
+    "fixtures": "NODE_OPTIONS=--no-experimental-strip-types ts-node -P tsconfig.json scripts/fetch-fixtures.ts",
+    "app-plan": "NODE_OPTIONS=--no-experimental-strip-types ts-node -P tsconfig.json scripts/app-plan.ts",
+    "deploy": "bash scripts/deploy-app.sh"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "0.31.1",
+    "@solana/spl-token": "0.4.13",
+    "@solana/web3.js": "1.98.4"
+  },
+  "devDependencies": {
+    "@types/chai": "4.3.20",
+    "@types/mocha": "10.0.10",
+    "@types/node": "20.19.9",
+    "chai": "4.5.0",
+    "mocha": "10.8.2",
+    "ts-mocha": "10.1.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.8.3"
+  }
+}

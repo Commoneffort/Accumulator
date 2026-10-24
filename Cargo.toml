@@ -1,0 +1,22 @@
+[workspace]
+members = ["programs/accumulator"]
+resolver = "2"
+
+# Same crate pins as Vow: keeps transitive deps on edition 2021 so
+# cargo-build-sbf (platform-tools v1.51) can parse them.
+[patch.crates-io]
+blake3 = { path = "patches/blake3" }
+proc-macro-crate = { path = "patches/proc-macro-crate" }
+hashbrown = { path = "patches/hashbrown" }
+indexmap = { path = "patches/indexmap" }
+unicode-segmentation = { path = "patches/unicode-segmentation" }
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1

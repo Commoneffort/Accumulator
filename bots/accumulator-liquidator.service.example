@@ -1,0 +1,25 @@
+# Liquidator for X1 mainnet. Install:
+#   sudo cp bots/accumulator-liquidator.service.example /etc/systemd/system/accumulator-liquidator.service  (edit the paths first)
+#   sudo systemctl daemon-reload && sudo systemctl enable --now accumulator-liquidator
+#   journalctl -u accumulator-liquidator -f
+# Fund the key with XNT (repays XNT-market debt) and USDC.x (repays USDC-market debt) first.
+[Unit]
+Description=Accumulator liquidator (X1 mainnet)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=<user>
+WorkingDirectory=/path/to/accumulator
+Environment=PATH=/path/to/node/bin:/usr/local/bin:/usr/bin:/bin
+Environment=KEYPAIR=/path/to/keys/accumulator-liquidator.json
+Environment=RPC=https://rpc.mainnet.x1.xyz
+Environment=POLL_SECONDS=20
+Environment=KEEP_XNT=0.5
+Environment=NODE_OPTIONS=--no-experimental-strip-types
+ExecStart=/path/to/node/bin/npx ts-node --transpile-only bots/liquidator.ts
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

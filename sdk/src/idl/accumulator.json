@@ -1,0 +1,2561 @@
+{
+  "address": "BTjwAkUiiGSrhYxTGD8UskZNTT1TMTQjkD4NQtk6Vs9y",
+  "metadata": {
+    "name": "accumulator",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Accumulator — isolated lend/borrow markets on X1"
+  },
+  "instructions": [
+    {
+      "name": "accept_admin",
+      "discriminator": [
+        112,
+        42,
+        45,
+        90,
+        116,
+        181,
+        13,
+        170
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "new_admin",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "accrue_interest",
+      "discriminator": [
+        47,
+        40,
+        115,
+        198,
+        91,
+        12,
+        222,
+        49
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "apply_params",
+      "discriminator": [
+        188,
+        203,
+        86,
+        124,
+        178,
+        34,
+        133,
+        116
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "apply_treasury",
+      "discriminator": [
+        226,
+        18,
+        133,
+        106,
+        27,
+        32,
+        83,
+        204
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "borrow",
+      "discriminator": [
+        228,
+        253,
+        131,
+        202,
+        207,
+        116,
+        89,
+        18
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "obligation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  98,
+                  108,
+                  105,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "lend_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "destination",
+          "writable": true
+        },
+        {
+          "name": "lend_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "cancel_params",
+      "discriminator": [
+        100,
+        172,
+        113,
+        60,
+        25,
+        68,
+        80,
+        172
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          },
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "market",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "close_obligation",
+      "discriminator": [
+        178,
+        182,
+        18,
+        237,
+        158,
+        158,
+        51,
+        124
+      ],
+      "accounts": [
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "obligation"
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "collect_collateral_fees",
+      "discriminator": [
+        2,
+        14,
+        191,
+        17,
+        217,
+        172,
+        237,
+        97
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          },
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "collateral_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "collateral_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "treasury_token",
+          "docs": [
+            "Must belong to the configured treasury."
+          ],
+          "writable": true
+        },
+        {
+          "name": "collateral_token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "collect_fees",
+      "discriminator": [
+        164,
+        152,
+        207,
+        99,
+        30,
+        186,
+        19,
+        182
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          },
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "lend_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "treasury_token",
+          "docs": [
+            "Must belong to the configured treasury."
+          ],
+          "writable": true
+        },
+        {
+          "name": "lend_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_market",
+      "discriminator": [
+        103,
+        226,
+        97,
+        235,
+        200,
+        188,
+        251,
+        254
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "lend_mint"
+        },
+        {
+          "name": "collateral_mint"
+        },
+        {
+          "name": "market",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "lend_mint"
+              },
+              {
+                "kind": "account",
+                "path": "collateral_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  105,
+                  113,
+                  117,
+                  105,
+                  100,
+                  105,
+                  116,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "collateral_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  108,
+                  108,
+                  97,
+                  116,
+                  101,
+                  114,
+                  97,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "share_mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  104,
+                  97,
+                  114,
+                  101,
+                  115
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "lend_token_program"
+        },
+        {
+          "name": "collateral_token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "MarketParams"
+            }
+          }
+        },
+        {
+          "name": "oracle_kind",
+          "type": {
+            "defined": {
+              "name": "OracleKind"
+            }
+          }
+        },
+        {
+          "name": "collateral_is_token0",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "deposit",
+      "discriminator": [
+        242,
+        35,
+        198,
+        137,
+        82,
+        225,
+        242,
+        182
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "lend_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "share_mint",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "user_token",
+          "docs": [
+            "User's lend-token account (source on deposit, destination on withdraw)."
+          ],
+          "writable": true
+        },
+        {
+          "name": "user_shares",
+          "docs": [
+            "User's share-token account."
+          ],
+          "writable": true
+        },
+        {
+          "name": "lend_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "deposit_collateral",
+      "discriminator": [
+        156,
+        131,
+        142,
+        116,
+        146,
+        247,
+        162,
+        120
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "obligation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  98,
+                  108,
+                  105,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "collateral_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "collateral_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "user_collateral",
+          "docs": [
+            "Owner's collateral account (source on deposit, destination on withdraw)."
+          ],
+          "writable": true
+        },
+        {
+          "name": "collateral_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "init_config",
+      "discriminator": [
+        23,
+        235,
+        115,
+        232,
+        168,
+        96,
+        1,
+        231
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "timelock_seconds",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "liquidate",
+      "discriminator": [
+        223,
+        179,
+        226,
+        125,
+        48,
+        46,
+        39,
+        74
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "liquidator",
+          "signer": true
+        },
+        {
+          "name": "lend_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "collateral_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "collateral_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "liquidator_lend",
+          "docs": [
+            "Liquidator pays debt from here."
+          ],
+          "writable": true
+        },
+        {
+          "name": "liquidator_collateral",
+          "docs": [
+            "Liquidator receives collateral here."
+          ],
+          "writable": true
+        },
+        {
+          "name": "lend_token_program"
+        },
+        {
+          "name": "collateral_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "max_repay",
+          "type": "u64"
+        },
+        {
+          "name": "min_collateral_out",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "migrate_config",
+      "discriminator": [
+        92,
+        131,
+        58,
+        105,
+        210,
+        154,
+        224,
+        193
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "migrate_market",
+      "discriminator": [
+        201,
+        113,
+        181,
+        120,
+        217,
+        60,
+        109,
+        203
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "open_obligation",
+      "discriminator": [
+        3,
+        19,
+        90,
+        233,
+        47,
+        113,
+        28,
+        155
+      ],
+      "accounts": [
+        {
+          "name": "market"
+        },
+        {
+          "name": "obligation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  98,
+                  108,
+                  105,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "propose_admin",
+      "discriminator": [
+        121,
+        214,
+        199,
+        212,
+        87,
+        39,
+        117,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "new_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "queue_params",
+      "discriminator": [
+        180,
+        46,
+        181,
+        164,
+        140,
+        178,
+        204,
+        127
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          },
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "market",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "MarketParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "repay",
+      "discriminator": [
+        234,
+        103,
+        67,
+        82,
+        208,
+        234,
+        219,
+        166
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "obligation",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "Anyone may repay any position."
+          ],
+          "signer": true
+        },
+        {
+          "name": "lend_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "source",
+          "writable": true
+        },
+        {
+          "name": "lend_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "set_borrow_paused",
+      "discriminator": [
+        246,
+        88,
+        130,
+        29,
+        127,
+        191,
+        3,
+        245
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          },
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "market",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "paused",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "set_treasury",
+      "discriminator": [
+        57,
+        97,
+        196,
+        95,
+        195,
+        206,
+        106,
+        136
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "treasury",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "discriminator": [
+        183,
+        18,
+        70,
+        156,
+        148,
+        109,
+        161,
+        34
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "lend_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "liquidity_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "share_mint",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "user_token",
+          "docs": [
+            "User's lend-token account (source on deposit, destination on withdraw)."
+          ],
+          "writable": true
+        },
+        {
+          "name": "user_shares",
+          "docs": [
+            "User's share-token account."
+          ],
+          "writable": true
+        },
+        {
+          "name": "lend_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "shares",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_collateral",
+      "discriminator": [
+        115,
+        135,
+        168,
+        106,
+        139,
+        214,
+        138,
+        150
+      ],
+      "accounts": [
+        {
+          "name": "market",
+          "writable": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "obligation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  98,
+                  108,
+                  105,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "obligation"
+          ]
+        },
+        {
+          "name": "collateral_mint",
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "collateral_vault",
+          "writable": true,
+          "relations": [
+            "market"
+          ]
+        },
+        {
+          "name": "user_collateral",
+          "docs": [
+            "Owner's collateral account (source on deposit, destination on withdraw)."
+          ],
+          "writable": true
+        },
+        {
+          "name": "collateral_token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Config",
+      "discriminator": [
+        155,
+        12,
+        170,
+        224,
+        30,
+        250,
+        204,
+        130
+      ]
+    },
+    {
+      "name": "Market",
+      "discriminator": [
+        219,
+        190,
+        213,
+        55,
+        0,
+        227,
+        198,
+        154
+      ]
+    },
+    {
+      "name": "Obligation",
+      "discriminator": [
+        168,
+        206,
+        141,
+        106,
+        88,
+        76,
+        172,
+        167
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "BorrowPauseSet",
+      "discriminator": [
+        92,
+        191,
+        251,
+        108,
+        90,
+        223,
+        18,
+        37
+      ]
+    },
+    {
+      "name": "Borrowed",
+      "discriminator": [
+        225,
+        182,
+        241,
+        78,
+        34,
+        145,
+        253,
+        230
+      ]
+    },
+    {
+      "name": "CollateralDeposited",
+      "discriminator": [
+        244,
+        62,
+        77,
+        11,
+        135,
+        112,
+        61,
+        96
+      ]
+    },
+    {
+      "name": "CollateralFeesCollected",
+      "discriminator": [
+        173,
+        205,
+        49,
+        27,
+        47,
+        34,
+        227,
+        168
+      ]
+    },
+    {
+      "name": "CollateralWithdrawn",
+      "discriminator": [
+        51,
+        224,
+        133,
+        106,
+        74,
+        173,
+        72,
+        82
+      ]
+    },
+    {
+      "name": "Deposited",
+      "discriminator": [
+        111,
+        141,
+        26,
+        45,
+        161,
+        35,
+        100,
+        57
+      ]
+    },
+    {
+      "name": "FeesCollected",
+      "discriminator": [
+        233,
+        23,
+        117,
+        225,
+        107,
+        178,
+        254,
+        8
+      ]
+    },
+    {
+      "name": "Liquidated",
+      "discriminator": [
+        231,
+        57,
+        55,
+        75,
+        0,
+        170,
+        246,
+        68
+      ]
+    },
+    {
+      "name": "MarketCreated",
+      "discriminator": [
+        88,
+        184,
+        130,
+        231,
+        226,
+        84,
+        6,
+        58
+      ]
+    },
+    {
+      "name": "ParamsApplied",
+      "discriminator": [
+        79,
+        221,
+        60,
+        141,
+        244,
+        69,
+        47,
+        209
+      ]
+    },
+    {
+      "name": "ParamsQueued",
+      "discriminator": [
+        154,
+        201,
+        187,
+        11,
+        75,
+        245,
+        205,
+        20
+      ]
+    },
+    {
+      "name": "Repaid",
+      "discriminator": [
+        38,
+        248,
+        231,
+        7,
+        150,
+        164,
+        172,
+        23
+      ]
+    },
+    {
+      "name": "TreasuryQueued",
+      "discriminator": [
+        194,
+        82,
+        68,
+        152,
+        151,
+        179,
+        21,
+        250
+      ]
+    },
+    {
+      "name": "TreasurySet",
+      "discriminator": [
+        69,
+        231,
+        163,
+        135,
+        254,
+        194,
+        109,
+        166
+      ]
+    },
+    {
+      "name": "Withdrawn",
+      "discriminator": [
+        20,
+        89,
+        223,
+        198,
+        194,
+        124,
+        219,
+        13
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "MathOverflow",
+      "msg": "Math overflow"
+    },
+    {
+      "code": 6001,
+      "name": "ZeroAmount",
+      "msg": "Amount must be greater than zero"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidParams",
+      "msg": "Invalid market parameters"
+    },
+    {
+      "code": 6003,
+      "name": "TimelockTooShort",
+      "msg": "Timelock must be at least the protocol minimum"
+    },
+    {
+      "code": 6004,
+      "name": "Unauthorized",
+      "msg": "Signer is not the admin"
+    },
+    {
+      "code": 6005,
+      "name": "NotPendingAdmin",
+      "msg": "No pending admin, or signer is not the pending admin"
+    },
+    {
+      "code": 6006,
+      "name": "NothingQueued",
+      "msg": "No parameter change is queued"
+    },
+    {
+      "code": 6007,
+      "name": "TimelockNotElapsed",
+      "msg": "Queued change is not yet executable"
+    },
+    {
+      "code": 6008,
+      "name": "BorrowPaused",
+      "msg": "Borrowing is paused on this market"
+    },
+    {
+      "code": 6009,
+      "name": "DepositCapExceeded",
+      "msg": "Deposit cap reached"
+    },
+    {
+      "code": 6010,
+      "name": "BorrowCapExceeded",
+      "msg": "Borrow cap reached"
+    },
+    {
+      "code": 6011,
+      "name": "AccountBorrowCapExceeded",
+      "msg": "Per-account borrow cap reached"
+    },
+    {
+      "code": 6012,
+      "name": "UtilizationTooHigh",
+      "msg": "Borrow would push utilization above the market maximum"
+    },
+    {
+      "code": 6013,
+      "name": "InsufficientLiquidity",
+      "msg": "Not enough liquidity in the market"
+    },
+    {
+      "code": 6014,
+      "name": "InsufficientCollateral",
+      "msg": "Not enough collateral"
+    },
+    {
+      "code": 6015,
+      "name": "BorrowLimitExceeded",
+      "msg": "Position would exceed the borrow limit"
+    },
+    {
+      "code": 6016,
+      "name": "PositionHealthy",
+      "msg": "Position is healthy and cannot be liquidated"
+    },
+    {
+      "code": 6017,
+      "name": "RepayTooLarge",
+      "msg": "Repay amount is above what may be liquidated"
+    },
+    {
+      "code": 6018,
+      "name": "ObligationNotEmpty",
+      "msg": "Position still has debt or collateral"
+    },
+    {
+      "code": 6019,
+      "name": "OracleAccountMismatch",
+      "msg": "Oracle accounts do not match the market"
+    },
+    {
+      "code": 6020,
+      "name": "OracleWrongOwner",
+      "msg": "Oracle account has the wrong owner"
+    },
+    {
+      "code": 6021,
+      "name": "OracleInvalidData",
+      "msg": "Oracle account data is invalid"
+    },
+    {
+      "code": 6022,
+      "name": "OracleWindowTooShort",
+      "msg": "Price history does not cover the required window"
+    },
+    {
+      "code": 6023,
+      "name": "OracleZeroPrice",
+      "msg": "Oracle price is zero"
+    },
+    {
+      "code": 6024,
+      "name": "UnsupportedOracle",
+      "msg": "Unsupported oracle kind for these mints"
+    },
+    {
+      "code": 6025,
+      "name": "InsufficientFees",
+      "msg": "Not enough protocol fees"
+    },
+    {
+      "code": 6026,
+      "name": "UnsupportedMint",
+      "msg": "Token-2022 mints may only carry metadata extensions"
+    },
+    {
+      "code": 6027,
+      "name": "TreasuryNotSet",
+      "msg": "No treasury has been set"
+    },
+    {
+      "code": 6028,
+      "name": "NotMigratable",
+      "msg": "Account is not in the expected old layout"
+    },
+    {
+      "code": 6029,
+      "name": "StakePoolNotUpdated",
+      "msg": "The stake pool hasn't updated for this epoch yet; try again shortly"
+    }
+  ],
+  "types": [
+    {
+      "name": "BorrowPauseSet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "paused",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Borrowed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CollateralDeposited",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CollateralFeesCollected",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Liquidation fees, in collateral tokens."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "treasury",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CollateralWithdrawn",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "pending_admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "timelock_seconds",
+            "docs": [
+              "Delay before queued risk changes can be applied. Fixed at init."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "market_count",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "treasury",
+            "docs": [
+              "Owner of the token accounts protocol fees are paid to. Default = not set yet."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "pending_treasury",
+            "docs": [
+              "A treasury change waiting for the timelock. Default = none."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "treasury_eta",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Deposited",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "shares",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeesCollected",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "docs": [
+              "Interest fees, in lend tokens."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "treasury",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Liquidated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidator",
+            "type": "pubkey"
+          },
+          {
+            "name": "repaid",
+            "type": "u64"
+          },
+          {
+            "name": "collateral_seized",
+            "docs": [
+              "Collateral taken from the position, including the protocol fee."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "protocol_fee",
+            "docs": [
+              "Part of the seized collateral kept by the protocol."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "bad_debt",
+            "type": "u64"
+          },
+          {
+            "name": "price_wad",
+            "type": "u128"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Market",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "config",
+            "type": "pubkey"
+          },
+          {
+            "name": "lend_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "lend_token_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "lend_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "collateral_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_token_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_decimals",
+            "type": "u8"
+          },
+          {
+            "name": "liquidity_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "share_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "oracle_kind",
+            "type": {
+              "defined": {
+                "name": "OracleKind"
+              }
+            }
+          },
+          {
+            "name": "oracle_accounts",
+            "docs": [
+              "Accounts the price is read from, in order. Unused slots are default."
+            ],
+            "type": {
+              "array": [
+                "pubkey",
+                4
+              ]
+            }
+          },
+          {
+            "name": "collateral_is_token0",
+            "docs": [
+              "XDEX only: true when the collateral is the pool's token 0."
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "params",
+            "type": {
+              "defined": {
+                "name": "MarketParams"
+              }
+            }
+          },
+          {
+            "name": "pending_params",
+            "type": {
+              "defined": {
+                "name": "MarketParams"
+              }
+            }
+          },
+          {
+            "name": "pending_eta",
+            "type": "i64"
+          },
+          {
+            "name": "has_pending",
+            "type": "bool"
+          },
+          {
+            "name": "borrow_paused",
+            "type": "bool"
+          },
+          {
+            "name": "cash",
+            "docs": [
+              "Lend tokens held in the liquidity vault (internal count; donations are ignored)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "total_borrow_scaled",
+            "docs": [
+              "Total debt in scaled units: debt = scaled * borrow_index / WAD."
+            ],
+            "type": "u128"
+          },
+          {
+            "name": "borrow_index",
+            "type": "u128"
+          },
+          {
+            "name": "protocol_fees",
+            "docs": [
+              "Interest owed to the protocol, in lend raw units."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "last_accrual_ts",
+            "type": "i64"
+          },
+          {
+            "name": "total_collateral",
+            "type": "u64"
+          },
+          {
+            "name": "cumulative_bad_debt",
+            "docs": [
+              "Debt written off after liquidations ran out of collateral (lend raw units)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "liquidity_vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "collateral_vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "share_mint_bump",
+            "type": "u8"
+          },
+          {
+            "name": "protocol_collateral_fees",
+            "docs": [
+              "Liquidation fees owed to the protocol, in collateral raw units. Held in the",
+              "collateral vault on top of `total_collateral`."
+            ],
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "lend_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "oracle_kind",
+            "type": {
+              "defined": {
+                "name": "OracleKind"
+              }
+            }
+          },
+          {
+            "name": "price_wad",
+            "type": "u128"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketParams",
+      "docs": [
+        "Risk and rate settings for one market. All bps values are out of 10_000."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "max_ltv_bps",
+            "docs": [
+              "Borrow limit: debt may not exceed this share of collateral value."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "liquidation_threshold_bps",
+            "docs": [
+              "Liquidation starts when debt exceeds this share of collateral value."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "liquidation_bonus_bps",
+            "docs": [
+              "Extra collateral a liquidator receives, on top of the debt repaid."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "close_factor_bps",
+            "docs": [
+              "Most of a position's debt one liquidation may repay."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "reserve_factor_bps",
+            "docs": [
+              "Share of interest kept as protocol fees."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "optimal_utilization_bps",
+            "docs": [
+              "Utilization where the rate curve steepens."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "max_utilization_bps",
+            "docs": [
+              "Borrows may not push utilization above this."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "base_rate_bps",
+            "docs": [
+              "Annual rate at 0% utilization."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "slope1_bps",
+            "docs": [
+              "Added annual rate from 0% to optimal utilization."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "slope2_bps",
+            "docs": [
+              "Added annual rate from optimal to 100% utilization."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "deposit_cap",
+            "docs": [
+              "Max total lender assets (lend token raw units)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "borrow_cap",
+            "docs": [
+              "Max total borrows (lend token raw units)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "max_borrow_per_obligation",
+            "docs": [
+              "Max debt of one position (lend token raw units)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "dust_debt",
+            "docs": [
+              "Positions with debt at or under this may be liquidated in full."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "twap_window_secs",
+            "docs": [
+              "XDEX TWAP window in seconds (ignored for stake pool markets)."
+            ],
+            "type": "u32"
+          },
+          {
+            "name": "liquidation_fee_bps",
+            "docs": [
+              "Share of each liquidation bonus kept by the protocol (paid in collateral)."
+            ],
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Obligation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "collateral",
+            "type": "u64"
+          },
+          {
+            "name": "borrow_scaled",
+            "type": "u128"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OracleKind",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "StakePool"
+          },
+          {
+            "name": "XdexTwap"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ParamsApplied",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ParamsQueued",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "eta",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Repaid",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TreasuryQueued",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "treasury",
+            "type": "pubkey"
+          },
+          {
+            "name": "eta",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TreasurySet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "treasury",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Withdrawn",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "shares",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}

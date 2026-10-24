@@ -1,0 +1,15 @@
+[package]
+name = "cpufeatures"
+version = "0.3.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Lightweight runtime CPU feature detection"
+
+[target.'cfg(all(target_arch = "aarch64", target_vendor = "apple"))'.dependencies]
+libc = { version = "0.2.155", default-features = false }
+[target.'cfg(all(target_arch = "aarch64", target_os = "linux"))'.dependencies]
+libc = { version = "0.2.155", default-features = false }
+[target.'cfg(all(target_arch = "loongarch64", target_os = "linux"))'.dependencies]
+libc = { version = "0.2.155", default-features = false }
+[target.'cfg(all(target_arch = "aarch64", target_os = "android"))'.dependencies]
+libc = { version = "0.2.155", default-features = false }

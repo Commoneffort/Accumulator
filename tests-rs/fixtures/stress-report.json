@@ -1,0 +1,804 @@
+{
+  "attacks": [
+    {
+      "arb_per_min": 0.3,
+      "attack": "pump 2x, hold 0m, arb 30%/min, cap $1000",
+      "attacker_pnl_usd": -1507.5077455249998,
+      "borrowed_usd": 999.96948,
+      "cap_usd": 1000,
+      "hold_secs": 0,
+      "protocol_loss_usd": 0.0,
+      "pump": 2.0
+    },
+    {
+      "arb_per_min": 0.3,
+      "attack": "pump 2x, hold 20m, arb 30%/min, cap $1000",
+      "attacker_pnl_usd": -11613.648374783756,
+      "borrowed_usd": 999.96948,
+      "cap_usd": 1000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 0.0,
+      "pump": 2.0
+    },
+    {
+      "arb_per_min": 0.3,
+      "attack": "pump 3x, hold 20m, arb 30%/min, cap $1000",
+      "attacker_pnl_usd": -23956.926030966253,
+      "borrowed_usd": 999.96948,
+      "cap_usd": 1000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 165.28072003374996,
+      "pump": 3.0
+    },
+    {
+      "arb_per_min": 0.1,
+      "attack": "pump 5x, hold 40m, arb 10%/min, cap $1000",
+      "attacker_pnl_usd": -28522.648944285025,
+      "borrowed_usd": 999.96948,
+      "cap_usd": 1000,
+      "hold_secs": 2400,
+      "protocol_loss_usd": 498.69357671499995,
+      "pump": 5.0
+    },
+    {
+      "arb_per_min": 0.1,
+      "attack": "pump 3x, hold 20m, arb 10%/min, cap $1000",
+      "attacker_pnl_usd": -6502.352349717504,
+      "borrowed_usd": 999.96948,
+      "cap_usd": 1000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 165.34566528250002,
+      "pump": 3.0
+    },
+    {
+      "arb_per_min": 0.1,
+      "attack": "pump 3x, hold 20m, arb 10%/min, cap $10000",
+      "attacker_pnl_usd": -5002.724310180003,
+      "borrowed_usd": 9999.961852,
+      "cap_usd": 10000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 1664.9737048200004,
+      "pump": 3.0
+    },
+    {
+      "arb_per_min": 0.1,
+      "attack": "pump 5x, hold 40m, arb 10%/min, cap $50000",
+      "attacker_pnl_usd": -4023.911529266272,
+      "borrowed_usd": 49999.976156,
+      "cap_usd": 50000,
+      "hold_secs": 2400,
+      "protocol_loss_usd": 24997.43099173375,
+      "pump": 5.0
+    },
+    {
+      "arb_per_min": 0.05,
+      "attack": "pump 3x, hold 20m, arb 5%/min, cap $5000",
+      "attacker_pnl_usd": -2244.9399894437483,
+      "borrowed_usd": 4999.961852,
+      "cap_usd": 5000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 831.9178075562504,
+      "pump": 3.0
+    },
+    {
+      "arb_per_min": 0.05,
+      "attack": "pump 3x, hold 20m, arb 5%/min, cap $10000",
+      "attacker_pnl_usd": -1411.734033888748,
+      "borrowed_usd": 9999.961852,
+      "cap_usd": 10000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 1665.1237631112508,
+      "pump": 3.0
+    },
+    {
+      "arb_per_min": 0.05,
+      "attack": "pump 3x, hold 20m, arb 5%/min, cap $20000",
+      "attacker_pnl_usd": 254.67787722125286,
+      "borrowed_usd": 19999.961852,
+      "cap_usd": 20000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 3331.53567422125,
+      "pump": 3.0
+    },
+    {
+      "arb_per_min": 0.05,
+      "attack": "pump 3x, hold 20m, arb 5%/min, cap $40000",
+      "attacker_pnl_usd": 3587.501699442495,
+      "borrowed_usd": 39999.961852,
+      "cap_usd": 40000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 6664.359496442499,
+      "pump": 3.0
+    },
+    {
+      "arb_per_min": 0.05,
+      "attack": "pump 5x, hold 20m, arb 5%/min, cap $20000",
+      "attacker_pnl_usd": 3373.3752745300044,
+      "borrowed_usd": 19999.961852,
+      "cap_usd": 20000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 9998.28506453,
+      "pump": 5.0
+    },
+    {
+      "arb_per_min": 0.05,
+      "attack": "pump 5x, hold 20m, arb 5%/min, cap $40000",
+      "attacker_pnl_usd": 13372.948487060003,
+      "borrowed_usd": 39999.961852,
+      "cap_usd": 40000,
+      "hold_secs": 1200,
+      "protocol_loss_usd": 19997.85827706,
+      "pump": 5.0
+    }
+  ],
+  "bank_run": [
+    {
+      "borrow_apr_after": 207.9,
+      "util_pct_after": 99.99,
+      "withdrawn_share_by_hour": [
+        {
+          "hour": 0,
+          "share": 0.12891985975609757
+        },
+        {
+          "hour": 1,
+          "share": 0.15002967944250872
+        },
+        {
+          "hour": 6,
+          "share": 0.24082552351916378
+        },
+        {
+          "hour": 24,
+          "share": 0.42848628658536586
+        },
+        {
+          "hour": 72,
+          "share": 0.5422889346689895
+        }
+      ]
+    }
+  ],
+  "bonus_sweep": [
+    {
+      "bad_debt_pct_mean": 0.071294196175,
+      "bad_debt_pct_worst": 0.5703535694,
+      "bonus_bps": 500,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.03476246683750267,
+      "liquidations_per_run": 18
+    },
+    {
+      "bad_debt_pct_mean": 0.17949774051,
+      "bad_debt_pct_worst": 0.8529590149199999,
+      "bonus_bps": 800,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.08893923275499899,
+      "liquidations_per_run": 16
+    },
+    {
+      "bad_debt_pct_mean": 0.23096889991874997,
+      "bad_debt_pct_worst": 0.9991273274899999,
+      "bonus_bps": 1000,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.11467443120937587,
+      "liquidations_per_run": 15
+    },
+    {
+      "bad_debt_pct_mean": 0.33221624284625,
+      "bad_debt_pct_worst": 1.37844581009,
+      "bonus_bps": 1200,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.165331908923122,
+      "liquidations_per_run": 13
+    },
+    {
+      "bad_debt_pct_mean": 0.74506603605425,
+      "bad_debt_pct_worst": 1.934268711874,
+      "bonus_bps": 500,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.3717487992771232,
+      "liquidations_per_run": 48
+    },
+    {
+      "bad_debt_pct_mean": 1.40921294332625,
+      "bad_debt_pct_worst": 2.965101697546,
+      "bonus_bps": 800,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.7039187929131302,
+      "liquidations_per_run": 41
+    },
+    {
+      "bad_debt_pct_mean": 1.7895329591179998,
+      "bad_debt_pct_worst": 3.497542786848,
+      "bonus_bps": 1000,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.894123380808999,
+      "liquidations_per_run": 38
+    },
+    {
+      "bad_debt_pct_mean": 2.1087827376747503,
+      "bad_debt_pct_worst": 3.9878425930200003,
+      "bonus_bps": 1200,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -1.0537849913373738,
+      "liquidations_per_run": 37
+    }
+  ],
+  "crash_sweep": [
+    {
+      "bad_debt_pct_mean": 3.46560116441125,
+      "bad_debt_pct_worst": 6.4468379249300005,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -1.7319378384556214,
+      "lender_pnl_pct_worst": -3.2226526124649935,
+      "liq_threshold_bps": 6500,
+      "max_ltv_bps": 5000,
+      "twap_window_secs": 1200
+    },
+    {
+      "bad_debt_pct_mean": 5.098898417202,
+      "bad_debt_pct_worst": 8.310325311549999,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -2.5485984236010006,
+      "lender_pnl_pct_worst": -4.154399415775001,
+      "liq_threshold_bps": 6500,
+      "max_ltv_bps": 5000,
+      "twap_window_secs": 1200
+    },
+    {
+      "bad_debt_pct_mean": 7.227114248623125,
+      "bad_debt_pct_worst": 11.728218181985998,
+      "cap_usd": 10000,
+      "lender_pnl_pct_mean": -3.612786876186562,
+      "lender_pnl_pct_worst": -5.863411005993003,
+      "liq_threshold_bps": 6500,
+      "max_ltv_bps": 5000,
+      "twap_window_secs": 1200
+    },
+    {
+      "bad_debt_pct_mean": 17.824697931232052,
+      "bad_debt_pct_worst": 22.944746986679203,
+      "cap_usd": 25000,
+      "lender_pnl_pct_mean": -8.911633281616028,
+      "lender_pnl_pct_worst": -11.471653239339584,
+      "liq_threshold_bps": 6500,
+      "max_ltv_bps": 5000,
+      "twap_window_secs": 1200
+    },
+    {
+      "bad_debt_pct_mean": 0.071294196175,
+      "bad_debt_pct_worst": 0.5703535694,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.03476246683750267,
+      "lender_pnl_pct_worst": -0.2844483846999979,
+      "liq_threshold_bps": 5500,
+      "max_ltv_bps": 4000,
+      "twap_window_secs": 1200
+    },
+    {
+      "bad_debt_pct_mean": 0.74506603605425,
+      "bad_debt_pct_worst": 1.934268711874,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.3717487992771232,
+      "lender_pnl_pct_worst": -0.9662522859370082,
+      "liq_threshold_bps": 5500,
+      "max_ltv_bps": 4000,
+      "twap_window_secs": 1200
+    },
+    {
+      "bad_debt_pct_mean": 2.24787623156625,
+      "bad_debt_pct_worst": 4.222040819511,
+      "cap_usd": 10000,
+      "lender_pnl_pct_mean": -1.1232312001581257,
+      "lender_pnl_pct_worst": -2.110278654755493,
+      "liq_threshold_bps": 5500,
+      "max_ltv_bps": 4000,
+      "twap_window_secs": 1200
+    },
+    {
+      "bad_debt_pct_mean": 3.7190408614025,
+      "bad_debt_pct_worst": 6.718841990100001,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -1.8586953057012494,
+      "lender_pnl_pct_worst": -3.3586879950500026,
+      "liq_threshold_bps": 6500,
+      "max_ltv_bps": 5000,
+      "twap_window_secs": 600
+    },
+    {
+      "bad_debt_pct_mean": 6.72768910003175,
+      "bad_debt_pct_worst": 10.841043115421998,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -3.3631506125158723,
+      "lender_pnl_pct_worst": -5.419947097710997,
+      "liq_threshold_bps": 6500,
+      "max_ltv_bps": 5000,
+      "twap_window_secs": 600
+    }
+  ],
+  "fee_sweep": [
+    {
+      "bad_debt_pct_mean": 0.07075716965875,
+      "bad_debt_pct_worst": 0.56605735727,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.03452247232937772,
+      "liq_fee_bps": 0,
+      "liquidations_per_run": 18,
+      "skipped_per_run": 107
+    },
+    {
+      "bad_debt_pct_mean": 0.071294196175,
+      "bad_debt_pct_worst": 0.5703535694,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.03476246683750267,
+      "liq_fee_bps": 1000,
+      "liquidations_per_run": 18,
+      "skipped_per_run": 110
+    },
+    {
+      "bad_debt_pct_mean": 0.06924693167125,
+      "bad_debt_pct_worst": 0.55397545337,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.03374330958561961,
+      "liq_fee_bps": 2500,
+      "liquidations_per_run": 19,
+      "skipped_per_run": 115
+    },
+    {
+      "bad_debt_pct_mean": 0.07469348659625,
+      "bad_debt_pct_worst": 0.59369858293,
+      "cap_usd": 1000,
+      "lender_pnl_pct_mean": -0.036430637048126546,
+      "liq_fee_bps": 5000,
+      "liquidations_per_run": 26,
+      "skipped_per_run": 159
+    },
+    {
+      "bad_debt_pct_mean": 0.78274801300275,
+      "bad_debt_pct_worst": 1.987204111932,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.3905945902513752,
+      "liq_fee_bps": 0,
+      "liquidations_per_run": 46,
+      "skipped_per_run": 365
+    },
+    {
+      "bad_debt_pct_mean": 0.74506603605425,
+      "bad_debt_pct_worst": 1.934268711874,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.3717487992771232,
+      "liq_fee_bps": 1000,
+      "liquidations_per_run": 48,
+      "skipped_per_run": 367
+    },
+    {
+      "bad_debt_pct_mean": 0.671433048569,
+      "bad_debt_pct_worst": 1.83027365256,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.33490034053450246,
+      "liq_fee_bps": 2500,
+      "liquidations_per_run": 52,
+      "skipped_per_run": 371
+    },
+    {
+      "bad_debt_pct_mean": 0.5034009997755,
+      "bad_debt_pct_worst": 1.565639391698,
+      "cap_usd": 5000,
+      "lender_pnl_pct_mean": -0.25081246988775396,
+      "liq_fee_bps": 5000,
+      "liquidations_per_run": 64,
+      "skipped_per_run": 324
+    }
+  ],
+  "loop_pxnt": [
+    {
+      "avg_leverage": 1.4352137079717964,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 4.855027777777777,
+      "interest_fees_xnt": 204.759085843,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": 1.1944242072834175,
+      "loopers_liquidated": 0,
+      "scenario": "rational loopers, 90 days",
+      "supply_apy_pct": 3.7197220134375,
+      "util_pct": 85.12875000000001
+    },
+    {
+      "avg_leverage": 1.4780282522354473,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 4.855027777777777,
+      "interest_fees_xnt": 204.759085843,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": -6.067307437070395,
+      "loopers_liquidated": 0,
+      "scenario": "validator loss -5% on day 1",
+      "supply_apy_pct": 3.7197220134375,
+      "util_pct": 85.12875000000001
+    },
+    {
+      "avg_leverage": 1.530185758309626,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 4.855027777777777,
+      "interest_fees_xnt": 204.759085843,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": -13.329039081424193,
+      "loopers_liquidated": 0,
+      "scenario": "validator loss -10% on day 1",
+      "supply_apy_pct": 3.7197220134375,
+      "util_pct": 85.12875000000001
+    },
+    {
+      "avg_leverage": 1.595118997229507,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 4.855027777777777,
+      "interest_fees_xnt": 204.759085843,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": -20.590770725778,
+      "loopers_liquidated": 0,
+      "scenario": "validator loss -15% on day 1",
+      "supply_apy_pct": 3.7197220134375,
+      "util_pct": 85.12875000000001
+    },
+    {
+      "avg_leverage": 1.7881799159417269,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 4.855027777777777,
+      "interest_fees_xnt": 204.759085843,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": -35.11423401448562,
+      "loopers_liquidated": 0,
+      "scenario": "validator loss -25% on day 1",
+      "supply_apy_pct": 3.7197220134375,
+      "util_pct": 85.12875000000001
+    },
+    {
+      "avg_leverage": 1.0004630757592987,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 6.763277777777647,
+      "interest_fees_xnt": 64.617912073,
+      "lender_withdrawn_pct": 100.2906659693685,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": 0.9267611577650061,
+      "loopers_liquidated": 0,
+      "scenario": "lenders all withdraw from day 1",
+      "supply_apy_pct": 3.7579324470693667,
+      "util_pct": 61.737527777777686
+    },
+    {
+      "avg_leverage": 3.6978129107209474,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 70.81119863013784,
+      "interest_fees_xnt": 19506.341324544,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 143.145600692,
+      "looper_return_pct": -39.4946464149193,
+      "loopers_liquidated": 23,
+      "scenario": "irrational loopers at the cap, 1 year",
+      "supply_apy_pct": 60.13259439205005,
+      "util_pct": 94.35512328767147
+    },
+    {
+      "avg_leverage": 1.8147725640684342,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 73.20894444444437,
+      "interest_fees_xnt": 3756.331274257,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": -22.171863230100602,
+      "loopers_liquidated": 0,
+      "scenario": "irrational loopers + -10% loss",
+      "supply_apy_pct": 62.845230037583256,
+      "util_pct": 95.3818333333333
+    },
+    {
+      "avg_leverage": 2.9670448013530586,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 1.9767222222222252,
+      "interest_fees_xnt": 410.817399356,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": 2.622486229525001,
+      "loopers_liquidated": 0,
+      "scenario": "deep market (2M lent): loopers reach 2-4x",
+      "supply_apy_pct": 0.7489004869305564,
+      "util_pct": 42.09552777777777
+    },
+    {
+      "avg_leverage": 3.886642097261567,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 1.9767222222222252,
+      "interest_fees_xnt": 410.817399356,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 0.0,
+      "looper_return_pct": -27.8514652121196,
+      "loopers_liquidated": 0,
+      "scenario": "deep market + -10% loss",
+      "supply_apy_pct": 0.7489004869305564,
+      "util_pct": 42.09552777777777
+    },
+    {
+      "avg_leverage": 4.396604878819445,
+      "bad_debt_xnt": 0.0,
+      "borrow_apr_pct": 1.7988055555555424,
+      "interest_fees_xnt": 340.368234572,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 179.956357132,
+      "looper_return_pct": -43.60850259784993,
+      "loopers_liquidated": 11,
+      "scenario": "deep market + -15% loss",
+      "supply_apy_pct": 0.6201535051249967,
+      "util_pct": 38.30650000000007
+    },
+    {
+      "avg_leverage": 4.897891477685411,
+      "bad_debt_xnt": 320.93923065,
+      "borrow_apr_pct": 0.8150277777777784,
+      "interest_fees_xnt": 64.56136826,
+      "lender_withdrawn_pct": 0.0,
+      "liquidation_fees_pxnt": 1331.044961304,
+      "looper_return_pct": -76.545785623618,
+      "loopers_liquidated": 24,
+      "scenario": "deep market + -25% loss",
+      "supply_apy_pct": 0.12756733275000015,
+      "util_pct": 17.391000000000005
+    }
+  ],
+  "usdc_xnt": [
+    {
+      "bad_debt_usd": 0.0,
+      "defended": 1,
+      "end_pool_price": 0.23215400619587406,
+      "failed_txs": 0,
+      "lender_pnl_pct": 0.029620539999997142,
+      "liquidations": 0,
+      "liquidator_profit_usd": 0.0,
+      "max_twap_gap_pct": 1.403053089383477,
+      "max_util_pct": 20.02,
+      "open_debt_usd": 1001.645187,
+      "scenario": "calm: 30 days random walk (60%/yr vol)",
+      "skipped_unprofitable": 0
+    },
+    {
+      "bad_debt_usd": 0.0,
+      "defended": 12,
+      "end_pool_price": 0.07485480154021161,
+      "failed_txs": 0,
+      "lender_pnl_pct": 0.0022596600000035494,
+      "liquidations": 22,
+      "liquidator_profit_usd": 13.899175999999784,
+      "max_twap_gap_pct": 0.8539261489072247,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 479.73681,
+      "scenario": "slow crash: -70% over 3 days",
+      "skipped_unprofitable": 0
+    },
+    {
+      "bad_debt_usd": 1.374061230875,
+      "defended": 6,
+      "end_pool_price": 0.12479993759024746,
+      "failed_txs": 0,
+      "lender_pnl_pct": -0.027331124617480107,
+      "liquidations": 19,
+      "liquidator_profit_usd": 3.1690649999998755,
+      "max_twap_gap_pct": 21.309980750083213,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 683.12132,
+      "scenario": "fast crash: -50% in 1 hour, stays down",
+      "skipped_unprofitable": 327
+    },
+    {
+      "bad_debt_usd": 0.0,
+      "defended": 2,
+      "end_pool_price": 0.2495129397451023,
+      "failed_txs": 0,
+      "lender_pnl_pct": 0.00008032000000657291,
+      "liquidations": 1,
+      "liquidator_profit_usd": 29.352251999999993,
+      "max_twap_gap_pct": 149.99980814754898,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 940.880132,
+      "scenario": "flash crash: -60% for 10 min, then recovers",
+      "skipped_unprofitable": 0
+    },
+    {
+      "bad_debt_usd": 482.353378940425,
+      "defended": 12,
+      "end_pool_price": 0.03742553237041571,
+      "failed_txs": 0,
+      "lender_pnl_pct": -9.646887318808496,
+      "liquidations": 56,
+      "liquidator_profit_usd": 4.140165999999908,
+      "max_twap_gap_pct": 87.79871364434398,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 487.594757,
+      "scenario": "capitulation: -85% in 2 hours, weak arbitrage",
+      "skipped_unprofitable": 2619
+    },
+    {
+      "bad_debt_usd": 52.166886622099994,
+      "defended": 10,
+      "end_pool_price": 0.09982915584122894,
+      "failed_txs": 0,
+      "lender_pnl_pct": -1.042985752442005,
+      "liquidations": 21,
+      "liquidator_profit_usd": 5.035274000000186,
+      "max_twap_gap_pct": 31.918350234626992,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 612.532842,
+      "scenario": "crash -60% in 1h while liquidator offline 6h",
+      "skipped_unprofitable": 720
+    },
+    {
+      "bad_debt_usd": 71.14888698550001,
+      "defended": 12,
+      "end_pool_price": 0.09982887768908646,
+      "failed_txs": 0,
+      "lender_pnl_pct": -1.422849079710009,
+      "liquidations": 46,
+      "liquidator_profit_usd": 5.05105999999995,
+      "max_twap_gap_pct": 31.918350234626992,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 561.246864,
+      "scenario": "liquidity crunch: crash -60% with pool 5x thinner",
+      "skipped_unprofitable": 639
+    },
+    {
+      "bad_debt_usd": 0.0,
+      "defended": 0,
+      "end_pool_price": 0.25,
+      "failed_txs": 13,
+      "lender_pnl_pct": 5.554496272727261,
+      "liquidations": 0,
+      "liquidator_profit_usd": 0.0,
+      "max_twap_gap_pct": 0.00007674098040366673,
+      "max_util_pct": 77.9,
+      "open_debt_usd": 909.832274,
+      "scenario": "rate spiral: no repayments for 1 year at cap",
+      "skipped_unprofitable": 0
+    },
+    {
+      "bad_debt_usd": 858.1552149835,
+      "defended": 12,
+      "end_pool_price": 0.09985115258858902,
+      "failed_txs": 0,
+      "lender_pnl_pct": -4.290015544917491,
+      "liquidations": 72,
+      "liquidator_profit_usd": 109.10661100000107,
+      "max_twap_gap_pct": 31.918350234626992,
+      "max_util_pct": 50.0,
+      "open_debt_usd": 4956.381901,
+      "scenario": "caps 10x ($10k) + crash -60% in 1h",
+      "skipped_unprofitable": 648
+    },
+    {
+      "bad_debt_usd": 19534.1054151739,
+      "defended": 12,
+      "end_pool_price": 0.09985686341936312,
+      "failed_txs": 0,
+      "lender_pnl_pct": -19.533204229173904,
+      "liquidations": 171,
+      "liquidator_profit_usd": 1588.748274000005,
+      "max_twap_gap_pct": 79.33185659349,
+      "max_util_pct": 50.0,
+      "open_debt_usd": 19843.671497,
+      "scenario": "caps 50x ($50k) + crash -60% in 1h",
+      "skipped_unprofitable": 1277
+    },
+    {
+      "bad_debt_usd": 540.161571039,
+      "defended": 10,
+      "end_pool_price": 0.0998566587691442,
+      "failed_txs": 0,
+      "lender_pnl_pct": -2.699965700194984,
+      "liquidations": 17,
+      "liquidator_profit_usd": 31.14572600000156,
+      "max_twap_gap_pct": 31.918350234626992,
+      "max_util_pct": 50.0,
+      "open_debt_usd": 6385.354021,
+      "scenario": "pool 10x deeper, caps 10x + crash -60% in 1h",
+      "skipped_unprofitable": 638
+    },
+    {
+      "bad_debt_usd": 12.364214764,
+      "defended": 10,
+      "end_pool_price": 0.1248237431709507,
+      "failed_txs": 0,
+      "lender_pnl_pct": -0.24717553527999758,
+      "liquidations": 29,
+      "liquidator_profit_usd": 5.230801000000099,
+      "max_twap_gap_pct": 21.309980750083213,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 503.681437,
+      "scenario": "EDGE LTV, launch caps: fast crash -50% in 1h",
+      "skipped_unprofitable": 656
+    },
+    {
+      "bad_debt_usd": 579.460407065925,
+      "defended": 12,
+      "end_pool_price": 0.03742786176728981,
+      "failed_txs": 0,
+      "lender_pnl_pct": -11.589011701318485,
+      "liquidations": 48,
+      "liquidator_profit_usd": 2.9626870000000736,
+      "max_twap_gap_pct": 87.79871364434398,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 584.674114,
+      "scenario": "EDGE LTV, launch caps: capitulation -85% in 2h",
+      "skipped_unprofitable": 2717
+    },
+    {
+      "bad_debt_usd": 0.0,
+      "defended": 12,
+      "end_pool_price": 0.0750411569951597,
+      "failed_txs": 0,
+      "lender_pnl_pct": 0.0019293800000097505,
+      "liquidations": 31,
+      "liquidator_profit_usd": 18.933976999999913,
+      "max_twap_gap_pct": 1.7279681771311672,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 281.367723,
+      "scenario": "EDGE LTV, launch caps: slow crash -70% over 3 days",
+      "skipped_unprofitable": 0
+    },
+    {
+      "bad_debt_usd": 0.0,
+      "defended": 4,
+      "end_pool_price": 0.24954800523025095,
+      "failed_txs": 0,
+      "lender_pnl_pct": 0.00006449999998547895,
+      "liquidations": 3,
+      "liquidator_profit_usd": 95.45756700000004,
+      "max_twap_gap_pct": 149.99980814754898,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 767.284232,
+      "scenario": "EDGE LTV, launch caps: flash crash -60% for 10 min",
+      "skipped_unprofitable": 0
+    },
+    {
+      "bad_debt_usd": 106.7590966917,
+      "defended": 12,
+      "end_pool_price": 0.09985614380953389,
+      "failed_txs": 0,
+      "lender_pnl_pct": -2.1348347738339934,
+      "liquidations": 23,
+      "liquidator_profit_usd": 4.998740000000055,
+      "max_twap_gap_pct": 31.918350234626992,
+      "max_util_pct": 20.0,
+      "open_debt_usd": 596.529536,
+      "scenario": "EDGE LTV, launch caps: -60% in 1h, liquidator off 6h",
+      "skipped_unprofitable": 1057
+    }
+  ],
+  "xnt_pxnt": [
+    {
+      "bad_debt_xnt": 0.0,
+      "lender_pnl_pct": 0.02515488156349388,
+      "liquidations": 0,
+      "scenario": "validator loss: rate -5% at once"
+    },
+    {
+      "bad_debt_xnt": 0.0,
+      "lender_pnl_pct": 0.009400255810998459,
+      "liquidations": 13,
+      "scenario": "validator loss: rate -20% at once"
+    },
+    {
+      "bad_debt_xnt": 7433.980930532,
+      "lender_pnl_pct": -3.7150721401440046,
+      "liquidations": 43,
+      "scenario": "validator loss: rate -30% at once"
+    },
+    {
+      "bad_debt_xnt": 0.0,
+      "lender_pnl_pct": 26.808106884261985,
+      "liquidations": 9,
+      "scenario": "interest spiral: 95% utilization for 2 years"
+    }
+  ]
+}
